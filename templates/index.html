@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tally Counter - Flask App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Tally Counter</h1>
+        
+        <div class="counter-display">
+            <span id="count">0</span>
+        </div>
+        
+        <div class="buttons">
+            <button id="increment">+</button>
+            <button id="decrement">-</button>
+            <button id="reset">Reset</button>
+        </div>
+        
+        <div class="storage">
+            <button id="store">Store Block</button>
+            <div id="blocks-container"></div>
+        </div>
+        
+        <div class="submit-section">
+            <button id="submit">Submit All Blocks</button>
+            <button id="show-data">Show Data</button>
+            <button id="clear-data">Clear All Data</button>
+        </div>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure you want to submit these blocks to the database?</p>
+            <div id="blocks-to-submit"></div>
+            <div class="modal-buttons">
+                <button id="confirm-submit">Yes, Submit</button>
+                <button id="cancel-submit">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Display Modal -->
+    <div id="data-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Submitted Data</h2>
+                <button id="close-data" class="close-btn">&times;</button>
+            </div>
+            <div id="data-content"></div>
+            <div class="modal-buttons">
+                <button id="close-data-btn">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading indicator -->
+    <div id="loading" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); z-index: 1001;">
+        <p>Loading...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
